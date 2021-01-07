@@ -174,39 +174,39 @@
 <p>A system where scripts are called a <em>lot</em>, in tight loops or in parallel.</p>
 </li>
 <li>
-<p>Keeping a global <a href="/book/engine/hello-world.html"><code>Engine</code></a> instance is sub-optimal due to contention and locking.</p>
+<p>Keeping a global <a href="/rhai/engine/hello-world.html"><code>Engine</code></a> instance is sub-optimal due to contention and locking.</p>
 </li>
 <li>
 <p>Scripts need to be executed independently from each other, perhaps concurrently.</p>
 </li>
 <li>
-<p>Scripts are used to <a href="/book/engine/func.html">create Rust closure</a> that are stored and may be called at any time, perhaps concurrently.
-In this case, the <a href="/book/engine/hello-world.html"><code>Engine</code></a> instance is usually moved into the closure itself.</p>
+<p>Scripts are used to <a href="/rhai/engine/func.html">create Rust closure</a> that are stored and may be called at any time, perhaps concurrently.
+In this case, the <a href="/rhai/engine/hello-world.html"><code>Engine</code></a> instance is usually moved into the closure itself.</p>
 </li>
 </ul>
 <h2><a class="header" href="#key-concepts" id="key-concepts">Key Concepts</a></h2>
 <ul>
 <li>
-<p>Create a single instance of each standard <a href="/book/rust/packages/index.html">package</a> required.
-To duplicate <code>Engine::new</code>, create a <a href="/book/rust/packages/builtin.html"><code>StandardPackage</code></a>.</p>
+<p>Create a single instance of each standard <a href="/rhai/rust/packages/index.html">package</a> required.
+To duplicate <code>Engine::new</code>, create a <a href="/rhai/rust/packages/builtin.html"><code>StandardPackage</code></a>.</p>
 </li>
 <li>
-<p>Gather up all common custom functions into a <a href="/book/rust/packages/create.html">custom package</a>.</p>
+<p>Gather up all common custom functions into a <a href="/rhai/rust/packages/create.html">custom package</a>.</p>
 </li>
 <li>
 <p>Store a global <code>AST</code> for use with all engines.</p>
 </li>
 <li>
-<p>Always use <code>Engine::new_raw</code> to create a <a href="/book/engine/raw.html">raw <code>Engine</code></a>, instead of <code>Engine::new</code> which is <em>much</em> more expensive.
-A <a href="/book/engine/raw.html">raw <code>Engine</code></a> is <em>extremely</em> cheap to create.</p>
-<p>Registering the <a href="/book/rust/packages/builtin.html"><code>StandardPackage</code></a> into a <a href="/book/engine/raw.html">raw <code>Engine</code></a> via
+<p>Always use <code>Engine::new_raw</code> to create a <a href="/rhai/engine/raw.html">raw <code>Engine</code></a>, instead of <code>Engine::new</code> which is <em>much</em> more expensive.
+A <a href="/rhai/engine/raw.html">raw <code>Engine</code></a> is <em>extremely</em> cheap to create.</p>
+<p>Registering the <a href="/rhai/rust/packages/builtin.html"><code>StandardPackage</code></a> into a <a href="/rhai/engine/raw.html">raw <code>Engine</code></a> via
 <code>Engine::register_global_module</code> is essentially the same as <code>Engine::new</code>.</p>
 <p>However, because packages are shared, using existing package is <em>much cheaper</em> than
 registering all the functions one by one.</p>
 </li>
 <li>
-<p>Register the required packages with the <a href="/book/engine/raw.html">raw <code>Engine</code></a> via <code>Engine::register_global_module</code>,
-using <code>Package::as_shared_module</code> to obtain a shared <a href="/book/rust/modules/index.html">module</a>.</p>
+<p>Register the required packages with the <a href="/rhai/engine/raw.html">raw <code>Engine</code></a> via <code>Engine::register_global_module</code>,
+using <code>Package::as_shared_module</code> to obtain a shared <a href="/rhai/rust/modules/index.html">module</a>.</p>
 </li>
 </ul>
 <h2><a class="header" href="#examples" id="examples">Examples</a></h2>

@@ -3,6 +3,6 @@
 	"repoHome": "https://github.com/jonathandturner/rhai/blob/master",
 	"repoTree": "https://github.com/jonathandturner/rhai/tree/master",
 	"rootUrlX": "",
-	"rootUrl": "/book",
-	"rootUrlXX": "/book/vnext"
+	"rootUrl": "/rhai",
+	"rootUrlXX": "/rhai/vnext"
 }

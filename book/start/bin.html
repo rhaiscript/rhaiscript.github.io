@@ -173,25 +173,8 @@
 <tr><td align="center"><a href="https://github.com/jonathandturner/rhai/tree/master/examples/rhai-repl.rs"><code>rhai-repl</code></a></td><td>a simple REPL, interactively evaluate statements from stdin</td></tr>
 <tr><td align="center"><a href="https://github.com/jonathandturner/rhai/tree/master/examples/rhai-run.rs"><code>rhai-run</code></a></td><td>runs each filename passed to it as a Rhai script</td></tr>
 </tbody></table>
-<h2><a class="header" href="#rhai-repl--the-rhai-repl-tool" id="rhai-repl--the-rhai-repl-tool"><code>rhai-repl</code> – The Rhai REPL Tool</a></h2>
-<p><code>rhai-repl</code> is a particularly useful utility program – it allows one to interactively
-try out Rhai’s language features in a standard REPL (<strong>R</strong>ead-<strong>E</strong>val-<strong>P</strong>rint <strong>L</strong>oop).</p>
-<p>Filenames passed to it as command line arguments are run and loaded before the REPL starts.</p>
-<h3><a class="header" href="#example" id="example">Example</a></h3>
-<p>The following command first runs three scripts – <code>init1.rhai</code>, <code>init2.rhai</code> and
-<code>init3.rhai</code> – loading the functions defined in each script into the <em>global</em>
-namespace.</p>
-<p>Then it enters an REPL, which can call the above functions freely.</p>
-<pre><code class="language-bash">rhai-repl init1.rhai init2.rhai init3.rhai
-</code></pre>
-<h2><a class="header" href="#rhai-run--the-rhai-runner" id="rhai-run--the-rhai-runner"><code>rhai-run</code> – The Rhai Runner</a></h2>
-<p>Use <code>rhai-run</code> to run Rhai scripts.</p>
-<p>Filenames passed to it as command line arguments are run in sequence.</p>
-<h3><a class="header" href="#example-1" id="example-1">Example</a></h3>
-<p>The following command runs the scripts <code>script1.rhai</code>, <code>script2.rhai</code> and <code>script3.rhai</code>
-in order.</p>
-<pre><code class="language-bash">rhai-run script1.rhai script2.rhai script3.rhai
-</code></pre>
+<p><code>rhai-repl</code> is particularly useful  –  it allows one to interactively try out Rhai’s
+language features in a standard REPL (<strong>R</strong>ead-<strong>E</strong>val-<strong>P</strong>rint <strong>L</strong>oop).</p>
 <h2><a class="header" href="#running-a-utility-program" id="running-a-utility-program">Running a Utility Program</a></h2>
 <p>Utilities can be run with the following command:</p>
 <pre><code class="language-bash">cargo run --bin {program_name}

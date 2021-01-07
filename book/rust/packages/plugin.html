@@ -168,7 +168,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#load-a-plugin-module-as-a-package" id="load-a-plugin-module-as-a-package">Load a Plugin Module as a Package</a></h1>
-<p><a href="/rhai/plugins/module.html">Plugin modules</a> can be loaded as a package just like a normal <a href="/rhai/rust/modules/index.html">module</a>
+<p><a href="/book/plugins/module.html">Plugin modules</a> can be loaded as a package just like a normal <a href="/book/rust/modules/index.html">module</a>
 via the <code>exported_module!</code> macro.</p>
 <pre><pre class="playground"><code class="language-rust">use rhai::Engine;
 use rhai::plugin::*;
@@ -195,9 +195,9 @@ fn main() {
 }
 </code></pre></pre>
 <h2><a class="header" href="#share-a-package-among-engines" id="share-a-package-among-engines">Share a Package Among <code>Engine</code>s</a></h2>
-<p>Loading a <a href="/rhai/rust/modules/index.html">module</a> via <code>Engine::load_package</code> consumes the module and it cannot be used again.</p>
-<p>If the functions are needed for multiple instances of <a href="/rhai/engine/hello-world.html"><code>Engine</code></a>, create a <a href="/rhai/rust/packages/create.html">custom package</a> from the
-<a href="/rhai/plugins/module.html">plugin module</a>, which can then be shared with <code>Package::get</code>.</p>
+<p>Loading a <a href="/book/rust/modules/index.html">module</a> via <code>Engine::load_package</code> consumes the module and it cannot be used again.</p>
+<p>If the functions are needed for multiple instances of <a href="/book/engine/hello-world.html"><code>Engine</code></a>, create a <a href="/book/rust/packages/create.html">custom package</a> from the
+<a href="/book/plugins/module.html">plugin module</a>, which can then be shared with <code>Package::get</code>.</p>
 
                     </main>
 

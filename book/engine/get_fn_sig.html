@@ -170,14 +170,14 @@
                         <h1><a class="header" href="#get-function-signatures" id="get-function-signatures">Get Function Signatures</a></h1>
 <h2><a class="header" href="#enginegen_fn_signatures" id="enginegen_fn_signatures"><code>Engine::gen_fn_signatures</code></a></h2>
 <p>As part of a <em>reflections</em> API, <code>Engine::gen_fn_signatures</code> returns a list of function signatures
-(<code>Vec&lt;String&gt;</code>), each corresponding to a particular function available to that <a href="/rhai/engine/hello-world.html"><code>Engine</code></a> instance.</p>
+(<code>Vec&lt;String&gt;</code>), each corresponding to a particular function available to that <a href="/book/engine/hello-world.html"><code>Engine</code></a> instance.</p>
 <p>Functions from the following sources are included, in order:</p>
 <ol>
 <li>Functions registered into the global namespace via the <code>Engine::register_XXX</code> API,</li>
-<li>Functions in global sub-modules registered via <a href="/rhai/rust/modules/create.html"><code>Engine::register_module</code></a>,</li>
-<li>Functions in registered <a href="/rhai/rust/packages/index.html">packages</a> (optional)</li>
+<li>Functions in global sub-modules registered via <a href="/book/rust/modules/create.html"><code>Engine::register_module</code></a>,</li>
+<li>Functions in registered <a href="/book/rust/packages/index.html">packages</a> (optional)</li>
 </ol>
-<p>Included are both native Rust as well as script-defined functions (except <a href="/rhai/engine/call-fn.html"><code>private</code></a> ones).</p>
+<p>Included are both native Rust as well as script-defined functions (except <a href="/book/engine/call-fn.html"><code>private</code></a> ones).</p>
 <h2><a class="header" href="#function-metadata" id="function-metadata">Function Metadata</a></h2>
 <p>Beware, however, that not all function signatures contain parameters and return value information.</p>
 <h3><a class="header" href="#engineregister_xxx" id="engineregister_xxx"><code>Engine::register_XXX</code></a></h3>
@@ -193,15 +193,15 @@ Notice that function names do not need to be valid identifiers.</p>
 <blockquote>
 <p><code>+(_, _)</code></p>
 </blockquote>
-<p>A <a href="/rhai/rust/getters-setters.html">property setter</a> - again, unknown parameters and return type.
+<p>A <a href="/book/rust/getters-setters.html">property setter</a> - again, unknown parameters and return type.
 Notice that function names do not need to be valid identifiers.
 In this case, the first parameter should be ‘&amp;mut T’ of the custom type and the return value is ‘()’:</p>
 <blockquote>
 <p><code>set$prop(_, _, _)</code></p>
 </blockquote>
 <h3><a class="header" href="#script-defined-functions" id="script-defined-functions">Script-defined functions</a></h3>
-<p>Script-defined <a href="/rhai/language/functions.html">function</a> signatures contain parameter names. Since all parameters, as well as
-the return value, are <a href="/rhai/language/dynamic.html"><code>Dynamic</code></a> the types are simply not shown.</p>
+<p>Script-defined <a href="/book/language/functions.html">function</a> signatures contain parameter names. Since all parameters, as well as
+the return value, are <a href="/book/language/dynamic.html"><code>Dynamic</code></a> the types are simply not shown.</p>
 <p>A script-defined function always takes dynamic arguments, and the return type is also dynamic:</p>
 <blockquote>
 <p><code>foo(x, y, z)</code></p>
@@ -220,19 +220,19 @@ the return value, are <a href="/rhai/language/dynamic.html"><code>Dynamic</code>
 <p><code>foo(x: Dynamic, y: Dynamic, z: Dynamic) -&gt; Result&lt;Dynamic, Box&lt;EvalAltResult&gt;&gt;</code></p>
 </blockquote>
 <h3><a class="header" href="#plugin-functions" id="plugin-functions">Plugin functions</a></h3>
-<p>Functions defined in <a href="/rhai/plugins/module.html">plugin modules</a> are the best.  They contain all the metadata
+<p>Functions defined in <a href="/book/plugins/module.html">plugin modules</a> are the best.  They contain all the metadata
 describing the functions.</p>
 <p>A plugin function <code>merge</code>:</p>
 <blockquote>
 <p><code>merge(list: &amp;mut MyStruct&lt;i64&gt;, num: usize, name: &amp;str) -&gt; Option&lt;bool&gt;</code></p>
 </blockquote>
 <p>Notice that function names do not need to be valid identifiers.</p>
-<p>An operator defined as a <a href="/rhai/rust/fallible.html">fallible function</a> in a <a href="/rhai/plugins/module.html">plugin module</a> via <code>#[rhai_fn(name=&quot;+=&quot;, return_raw)]</code>
+<p>An operator defined as a <a href="/book/rust/fallible.html">fallible function</a> in a <a href="/book/plugins/module.html">plugin module</a> via <code>#[rhai_fn(name=&quot;+=&quot;, return_raw)]</code>
 returns <code>Result&lt;bool, Box&lt;EvalAltResult&gt;&gt;</code>:</p>
 <blockquote>
 <p><code>+=(list: &amp;mut MyStruct&lt;i64&gt;, num: usize, name: &amp;str) -&gt; Result&lt;bool, Box&lt;EvalAltResult&gt;&gt;</code></p>
 </blockquote>
-<p>A <a href="/rhai/rust/getters-setters.html">property getter</a> defined in a <a href="/rhai/plugins/module.html">plugin module</a>:</p>
+<p>A <a href="/book/rust/getters-setters.html">property getter</a> defined in a <a href="/book/plugins/module.html">plugin module</a>:</p>
 <blockquote>
 <p><code>get$prop(obj: &amp;mut MyStruct&lt;i64&gt;) -&gt; String</code></p>
 </blockquote>

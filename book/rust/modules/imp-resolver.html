@@ -171,13 +171,13 @@
 <p>For many applications in which Rhai is embedded, it is necessary to customize the way that modules
 are resolved.  For instance, modules may need to be loaded from script texts stored in a database,
 not in the file system.</p>
-<p>A module resolver must implement the trait <a href="/rhai/rust/traits.html"><code>rhai::ModuleResolver</code></a>,
+<p>A module resolver must implement the trait <a href="/book/rust/traits.html"><code>rhai::ModuleResolver</code></a>,
 which contains only one function: <code>resolve</code>.</p>
 <p>When Rhai prepares to load a module, <code>ModuleResolver::resolve</code> is called with the name
-of the <em>module path</em> (i.e. the path specified in the <a href="/rhai/language/modules/import.html"><code>import</code></a> statement).</p>
+of the <em>module path</em> (i.e. the path specified in the <a href="/book/language/modules/import.html"><code>import</code></a> statement).</p>
 <ul>
 <li>
-<p>Upon success, it should return an <a href="/rhai/rust/modules/index.html"><code>Rc&lt;Module&gt;</code></a> (or <a href="/rhai/rust/modules/index.html"><code>Arc&lt;Module&gt;</code></a> under <a href="/rhai/start/features.html"><code>sync</code></a>).</p>
+<p>Upon success, it should return an <a href="/book/rust/modules/index.html"><code>Rc&lt;Module&gt;</code></a> (or <a href="/book/rust/modules/index.html"><code>Arc&lt;Module&gt;</code></a> under <a href="/book/start/features.html"><code>sync</code></a>).</p>
 <p>The module should call <code>Module::build_index</code> on the target module before returning.
 This method flattens the entire module tree and <em>indexes</em> it for fast function name resolution.
 If the module is already indexed, calling this method has no effect.</p>

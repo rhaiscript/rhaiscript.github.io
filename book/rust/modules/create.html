@@ -169,14 +169,14 @@
                     <main>
                         <h1><a class="header" href="#create-a-module-from-rust" id="create-a-module-from-rust">Create a Module from Rust</a></h1>
 <h2><a class="header" href="#create-via-plugin" id="create-via-plugin">Create via Plugin</a></h2>
-<p>By far the simplest way to create a <a href="/rhai/rust/modules/index.html">module</a> is via a <a href="/rhai/plugins/module.html">plugin module</a>
-which converts a normal Rust module into a Rhai <a href="/rhai/rust/modules/index.html">module</a> via procedural macros.</p>
+<p>By far the simplest way to create a <a href="/book/rust/modules/index.html">module</a> is via a <a href="/book/plugins/module.html">plugin module</a>
+which converts a normal Rust module into a Rhai <a href="/book/rust/modules/index.html">module</a> via procedural macros.</p>
 <h2><a class="header" href="#create-via-module-api" id="create-via-module-api">Create via <code>Module</code> API</a></h2>
-<p>Manually creating a <a href="/rhai/rust/modules/index.html">module</a> is possible via the <code>Module</code> API.</p>
+<p>Manually creating a <a href="/book/rust/modules/index.html">module</a> is possible via the <code>Module</code> API.</p>
 <p>For the complete <code>Module</code> API, refer to the <a href="https://docs.rs/rhai/0.19.9/rhai/struct.Module.html">documentation</a> online.</p>
 <h2><a class="header" href="#use-case-1--make-the-module-globally-available" id="use-case-1--make-the-module-globally-available">Use Case 1 – Make the <code>Module</code> Globally Available</a></h2>
-<p><code>Engine::register_global_module</code> registers a shared <a href="/rhai/rust/modules/index.html">module</a> into the <em>global</em> namespace.</p>
-<p>All <a href="/rhai/language/functions.html">functions</a> and <a href="/rhai/language/iterator.html">type iterators</a> can be accessed without <em>namespace qualifiers</em>.
+<p><code>Engine::register_global_module</code> registers a shared <a href="/book/rust/modules/index.html">module</a> into the <em>global</em> namespace.</p>
+<p>All <a href="/book/language/functions.html">functions</a> and <a href="/book/language/iterator.html">type iterators</a> can be accessed without <em>namespace qualifiers</em>.
 Variables and sub-modules are <strong>ignored</strong>.</p>
 <p>This is by far the easiest way to expose a module’s functionalities to Rhai.</p>
 <pre><pre class="playground"><code class="language-rust">
@@ -200,10 +200,10 @@ engine.register_global_module(module.into());
 engine.eval::&lt;i64&gt;(&quot;inc(41)&quot;)? == 42;       // no need to import module
 <span class="boring">}
 </span></code></pre></pre>
-<p>Registering a <a href="/rhai/rust/modules/index.html">module</a> via <code>Engine::register_global_module</code> is essentially the <em>same</em>
+<p>Registering a <a href="/book/rust/modules/index.html">module</a> via <code>Engine::register_global_module</code> is essentially the <em>same</em>
 as calling <code>Engine::register_fn</code> (or any of the <code>Engine::register_XXX</code> API) individually
-on each top-level function within that <a href="/rhai/rust/modules/index.html">module</a>.  In fact, the actual implementation of
-<code>Engine::register_fn</code> etc. simply adds the function to an internal <a href="/rhai/rust/modules/index.html">module</a>!</p>
+on each top-level function within that <a href="/book/rust/modules/index.html">module</a>.  In fact, the actual implementation of
+<code>Engine::register_fn</code> etc. simply adds the function to an internal <a href="/book/rust/modules/index.html">module</a>!</p>
 <pre><pre class="playground"><code class="language-rust">
 <span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
@@ -216,7 +216,7 @@ engine.eval::&lt;i64&gt;(&quot;inc(41)&quot;)? == 42;       // no need to import
 <span class="boring">}
 </span></code></pre></pre>
 <h2><a class="header" href="#use-case-2--make-the-module-a-static-module" id="use-case-2--make-the-module-a-static-module">Use Case 2 – Make the <code>Module</code> a Static Module</a></h2>
-<p><code>Engine::register_static_module</code> registers a <a href="/rhai/rust/modules/index.html">module</a> and under a specific module namespace.</p>
+<p><code>Engine::register_static_module</code> registers a <a href="/book/rust/modules/index.html">module</a> and under a specific module namespace.</p>
 <pre><pre class="playground"><code class="language-rust">
 <span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
@@ -241,10 +241,10 @@ engine.eval::&lt;i64&gt;(&quot;services::calc::inc(41)&quot;)? == 42;
 <span class="boring">}
 </span></code></pre></pre>
 <h3><a class="header" href="#expose-functions-to-the-global-namespace" id="expose-functions-to-the-global-namespace">Expose Functions to the Global Namespace</a></h3>
-<p>The <code>Module::set_fn_XXX_mut</code> API methods can optionally expose functions in the <a href="/rhai/rust/modules/index.html">module</a>
+<p>The <code>Module::set_fn_XXX_mut</code> API methods can optionally expose functions in the <a href="/book/rust/modules/index.html">module</a>
 to the <em>global</em> namespace by setting the <code>namespace</code> parameter to <code>FnNamespace::Global</code>,
-so <a href="/rhai/rust/getters-setters.html">getters/setters</a> and <a href="/rhai/rust/indexers.html">indexers</a> for <a href="/rhai/rust/custom.html">custom types</a> can work as expected.</p>
-<p><a href="/rhai/language/iterator.html">Type iterators</a>, because of their special nature, are <em>always</em> exposed to the <em>global</em> namespace.</p>
+so <a href="/book/rust/getters-setters.html">getters/setters</a> and <a href="/book/rust/indexers.html">indexers</a> for <a href="/book/rust/custom.html">custom types</a> can work as expected.</p>
+<p><a href="/book/language/iterator.html">Type iterators</a>, because of their special nature, are <em>always</em> exposed to the <em>global</em> namespace.</p>
 <pre><pre class="playground"><code class="language-rust">
 <span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
@@ -273,9 +273,9 @@ engine.eval::&lt;i64&gt;(&quot;let x = 41; inc(x)&quot;)? == 42;
 <span class="boring">}
 </span></code></pre></pre>
 <h2><a class="header" href="#use-case-3--make-the-module-dynamically-loadable" id="use-case-3--make-the-module-dynamically-loadable">Use Case 3 – Make the <code>Module</code> Dynamically Loadable</a></h2>
-<p>In order to dynamically load a custom module, there must be a <a href="/rhai/rust/modules/resolvers.html">module resolver</a> which serves
+<p>In order to dynamically load a custom module, there must be a <a href="/book/rust/modules/resolvers.html">module resolver</a> which serves
 the module when loaded via <code>import</code> statements.</p>
-<p>The easiest way is to use, for example, the <a href="/rhai/rust/modules/resolvers.html"><code>StaticModuleResolver</code></a> to hold such
+<p>The easiest way is to use, for example, the <a href="/book/rust/modules/resolvers.html"><code>StaticModuleResolver</code></a> to hold such
 a custom module.</p>
 <pre><pre class="playground"><code class="language-rust">
 <span class="boring">#![allow(unused)]

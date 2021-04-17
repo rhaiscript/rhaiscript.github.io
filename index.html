@@ -1,103 +1,109 @@
 <!DOCTYPE HTML>
 <html lang="en">
-    <head>
-        <title>Rhai &ndash; Embedded Scripting for Rust</title>
 
-        <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="description" content="Embedded scripting language and engine for Rust. A small, fast, easy-to-use scripting language and evaluation engine that integrates tightly with Rust. Builds for most common targets including no-std and WASM.">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffd675">
-        
-        <link rel="shortcut icon" href="https://rhai.rs/book/favicon.png">
+<head>
+    <title>Rhai &ndash; Embedded Scripting for Rust</title>
 
-        <style>
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-                font-family: sans-serif;
-            }
-            body {
-                /* Gradient from logo */
-                background: #f67501;
-                background: linear-gradient(180deg, #ffd675 0%, #f67501 100%);
-            }
-            .center {
-                margin: 1rem;
-                min-height: calc(100vh - 2rem);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-            main {
-                max-width: 42rem;
-                padding: 1rem;
-                background: white;
-                border-radius: 0.5rem;
-                line-height: 1.5rem;
-            }
-            .space-lg {
-                margin-top: 2rem;
-            }
-            .space-sm {
-                margin-top: 1rem;
-            }
-            .logo {
-                display: block;
-                max-width: 50%;
-                margin: 0 auto;
-            }
-            h1 {
-                font-size: 1.3rem;
-                text-align: center;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="center">
-            <main>
-                <img class="logo" alt="Rhai logo" src="https://rhai.rs/book/images/logo/rhai-logo-transparent-colour-black.svg" />
-                
-                <h1 class="space-lg">Embedded scripting language and engine for Rust</h1>
+    <meta charset="UTF-8">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta name="description"
+          content="Embedded scripting language and engine for Rust. A small, fast, easy-to-use scripting language and evaluation engine that integrates tightly with Rust. Builds for most common targets including no-std and WASM.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffd675">
 
-                <p class="space-lg">
-                    A small, fast, easy-to-use scripting language and evaluation engine that integrates tightly with Rust. Builds for most common targets including no-std and WASM.
-                </p>
+    <link rel="shortcut icon" href="https://rhai.rs/book/favicon.png">
 
-                <p class="space-sm">
-                    Home Repo on GitHub: <a href="https://github.com/rhaiscript">https://github.com/rhaiscript</a>
-                </p>
-                
-                <p>
-                    Read <a href="book"><i>The Rhai Book</i> here</a>.
-                </p>
-                
-                <p>
-                    Try it out at the <a href="playground"><i>Online Playground</i> here</a>.
-                </p>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
 
-                <h3 class="space-lg">Other resources</h3>
+        body {
+            /* Gradient from logo */
+            background: #f67501;
+            background: linear-gradient(180deg, #ffd675 0%, #f67501 100%);
+        }
 
-                <p class="space-sm">
-                    crates.io &ndash; <a href="https://crates.io/crates/rhai">https://crates.io/crates/rhai</a>
-                </p>
-                <p>
-                    Discord &ndash; <a href="https://discord.gg/HquqbYFcZ9">https://discord.gg/HquqbYFcZ9</a>
-                </p>
-                <p>
-                    Reddit &ndash; <a href="https://www.reddit.com/r/Rhai">https://www.reddit.com/r/Rhai</a>
-                </p>
-                
-                <h3 class="space-lg">IDE integration</h3>
+        .center {
+            margin: 1rem;
+            min-height: calc(100vh - 2rem);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
 
-                <p class="space-sm">
-                    <a href="https://marketplace.visualstudio.com/items?itemName=rhaiscript.vscode-rhai">VS Code Plugin</a> &ndash; syntax highlighting for <code>.rhai</code> script files
-                </p>
-                <p>
-                    <a href="https://packagecontrol.io/packages/Rhai">Sublime Text 3</a> &ndash; syntax highlighting for <code>.rhai</code> script files
-                </p>
-            </main>
-        </div>
-    </body>
+        main {
+            max-width: 42rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 0.5rem;
+            line-height: 1.5rem;
+        }
+
+        .space-lg {
+            margin-top: 2rem;
+        }
+
+        .space-sm {
+            margin-top: 1rem;
+        }
+
+        .logo {
+            display: block;
+            max-width: 50%;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 1.3rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <main>
+            <img class="logo" alt="Rhai logo"
+                 src="https://rhai.rs/book/images/logo/rhai-logo-transparent-colour-black.svg" />
+
+            <h1 class="space-lg">Embedded scripting language and engine for Rust</h1>
+
+            <p class="space-lg">
+                A small, fast, easy-to-use scripting language and evaluation engine that integrates tightly with Rust.
+                Builds for most common targets including no-std and WASM.
+            </p>
+
+            <p class="space-sm">
+                <a href="https://crates.io/crates/rhai">crates.io</a>
+                &nbsp;|&nbsp;
+                <a href="https://github.com/rhaiscript">GitHub repo</a>
+                &nbsp;|&nbsp;
+                <a href="book"><i>The Rhai Book</i></a>
+                &nbsp;|&nbsp;
+                <a href="playground">Online Playground</a>
+            </p>
+
+            <h3 class="space-lg">Community</h3>
+
+            <p class="space-sm">
+                <a href="https://discord.gg/HquqbYFcZ9">Discord</a>
+                &nbsp;|&nbsp;
+                <a href="https://www.reddit.com/r/Rhai">Reddit</a>
+            </p>
+
+            <h3 class="space-lg">IDE integration</h3>
+
+            <p class="space-sm">
+                <a href="https://marketplace.visualstudio.com/items?itemName=rhaiscript.vscode-rhai">VS Code Plugin</a>
+                &nbsp;|&nbsp;
+                <a href="https://packagecontrol.io/packages/Rhai">Sublime Text 3 Package</a>
+            </p>
+        </main>
+    </div>
+</body>
+
 </html>
